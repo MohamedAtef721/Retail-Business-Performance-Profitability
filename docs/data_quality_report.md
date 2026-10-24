@@ -82,15 +82,53 @@ Potential explanations include a modified dataset, synthetic records, or an issu
 
 ## 4. Pending Quality Checks
 
-The following checks remain incomplete:
+### Missing Values
 
-- Missing values by column.
-- Future-dated Order Date and Ship Date records.
-- Duplicate Order ID and Product ID combinations.
-- Uniqueness of customer and product attributes where relevant.
-- Consistency of categorical values, including Region, Segment, Category, and Ship Mode.
-- Validation of the dataset's source and date range.
-- Review of extreme Sales, Profit, Discount, and Quantity values.
+No missing values were detected in any of the 21 columns.
+
+**Result:** Passed for completeness checks.
+
+**Business Impact:** The required columns are populated, so no missing-value imputation or deletion is currently required. However, populated values must still be checked for validity and consistency.
+
+### Remaining Validation
+
+### Future-Dated Records
+
+Using the fixed analysis date of October 24, 2026:
+
+| Check | Result |
+|---|---:|
+| Records with future Order Dates | 999 |
+| Records with future Ship Dates | 1,040 |
+
+These records require investigation before time-based reporting is finalized.
+
+The counts refer to transaction rows, not distinct orders. The records should not be deleted automatically. Their date range, source, and business context must be reviewed first.
+
+### Repeated Order-Product Combinations
+
+A duplicate check on the combination of `Order ID` and `Product ID` identified 11 repeated records according to Pandas' default duplicate-row counting behavior.
+
+This finding does not automatically indicate erroneous transactions. The repeated combinations must be inspected to determine whether they represent legitimate separate transaction lines or unintended duplication.
+
+### Categorical Distribution
+
+The initial categorical review identified:
+
+- **Region:** West, East, Central, South.
+- **Segment:** Consumer, Corporate, Home Office.
+- **Category:** Office Supplies, Furniture, Technology.
+- **Ship Mode:** Standard Class, Second Class, First Class, Same Day.
+
+The counts across each of these four columns sum to 10,194, matching the dataset row count. Further source validation may be needed before treating these categories as fully verified.
+
+### Assessment Update
+
+The dataset has no detected missing values, exact duplicate rows, or duplicate Row IDs. However, future-dated records and repeated order-product combinations remain under investigation.
+
+No records have been removed or corrected based solely on these findings.
+
+
 
 ## 5. Cleaning Decisions
 
