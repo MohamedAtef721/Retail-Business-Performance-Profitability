@@ -254,6 +254,38 @@ Products with exactly zero profit are excluded from both the loss-making and pro
 
 These findings identify where further investigation should be prioritized. They do not establish the causes of losses or prove that discounts are responsible.
 
+## Product-Level Loss Investigation
+
+### Finding 13: Cubify CubeX 3D Printer has the largest individual product loss
+
+The Cubify CubeX 3D Printer Double Head Print recorded sales of 11,099.96 and a loss of 8,879.97, with an average discount of 53% and a profit margin of -80%.
+
+**Business implication:** Review the product's selling price, acquisition cost, and discount policy to understand the sources of its negative profitability.
+
+### Finding 14: High sales do not necessarily translate into profit
+
+The Cisco TelePresence System EX90 Videoconferencing product generated sales of 22,638.48 but recorded a loss of 1,811.08. Its average discount was 50%.
+
+**Business implication:** Sales performance should be evaluated alongside profit and profit margin. Revenue alone is insufficient to assess product performance.
+
+### Finding 15: Losses affect multiple products across priority sub-categories
+
+The top loss-making products include several items from Furniture - Tables, Furniture - Bookcases, and Technology - Machines.
+
+**Business implication:** The findings support investigating individual products within these sub-categories rather than relying exclusively on sub-category totals.
+
+### Recommended Actions
+
+1. Review the cost and selling price of the Cubify CubeX 3D Printer.
+2. Investigate products with high sales but negative profit, including the Cisco TelePresence System EX90.
+3. Review discount levels alongside product costs and profit margins.
+4. Prioritize loss-making products based on their financial impact and recurrence.
+5. Validate findings against reliable cost and pricing records before changing commercial policies.
+
+### Limitations
+
+These findings are descriptive and do not establish that discounts caused the observed losses. The analysis uses the dataset's recorded Profit field and does not independently verify the underlying cost calculations.
+
 ## 9. Next Steps
 
 1. Identify the 15 products with the largest aggregate losses.
