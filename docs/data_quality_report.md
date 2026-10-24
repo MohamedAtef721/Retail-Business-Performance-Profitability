@@ -80,8 +80,6 @@ The latest date is later than the current analysis date of October 2026. This re
 
 Potential explanations include a modified dataset, synthetic records, or an issue with the date values. No explanation should be assumed without verification.
 
-## 4. Pending Quality Checks
-
 ### Missing Values
 
 No missing values were detected in any of the 21 columns.
@@ -90,7 +88,7 @@ No missing values were detected in any of the 21 columns.
 
 **Business Impact:** The required columns are populated, so no missing-value imputation or deletion is currently required. However, populated values must still be checked for validity and consistency.
 
-### Remaining Validation
+## 4. Pending Quality Checks
 
 ### Future-Dated Records
 
@@ -107,9 +105,15 @@ The counts refer to transaction rows, not distinct orders. The records should no
 
 ### Repeated Order-Product Combinations
 
-A duplicate check on the combination of `Order ID` and `Product ID` identified 11 repeated records according to Pandas' default duplicate-row counting behavior.
+A duplicate check on the combination of `Order ID` and `Product ID` identified 11 repeated combinations. Each combination appears twice, representing 22 transaction rows in total.
 
-This finding does not automatically indicate erroneous transactions. The repeated combinations must be inspected to determine whether they represent legitimate separate transaction lines or unintended duplication.
+#### Repeated Combination Summary
+
+Further investigation showed that the repeated combinations have different Sales, Quantity, and Profit values. Each combination has one distinct Discount value within its two records.
+
+These findings do not establish that the records are erroneous duplicates. They may represent separate transaction lines, but the original transaction-line structure and source documentation are needed to confirm their intended meaning.
+
+**Decision:** Retain all records for now. Do not remove records based on `Order ID` and `Product ID` alone. Verify the transaction-line grain and ensure that subsequent aggregations or joins do not introduce additional duplication.
 
 ### Categorical Distribution
 
@@ -124,7 +128,7 @@ The counts across each of these four columns sum to 10,194, matching the dataset
 
 ### Assessment Update
 
-The dataset has no detected missing values, exact duplicate rows, or duplicate Row IDs. However, future-dated records and repeated order-product combinations remain under investigation.
+The dataset has no detected missing values, exact duplicate rows, or duplicate Row IDs. However, future-dated records and repeated order-product combinations have been investigated, but their intended transaction-line structure still requires source validation.
 
 No records have been removed or corrected based solely on these findings.
 
@@ -167,9 +171,8 @@ Negative profit records and future-dated records require further investigation. 
 
 ## 8. Next Steps
 
-1. Calculate missing values by column.
-2. Investigate records with dates later than the current analysis date.
-3. Validate the Order ID and Product ID combination.
-4. Review categorical consistency and extreme values.
-5. Finalize and document any necessary cleaning decisions.
-6. Calculate baseline business KPIs after the relevant validation is complete.
+1. Investigate records with dates later than the current analysis date.
+2. Validate the Order ID and Product ID combination.
+3. Review categorical consistency and extreme values.
+4. Finalize and document any necessary cleaning decisions.
+5. Calculate baseline business KPIs and compare the full dataset with records dated on or before October 24, 2026.
