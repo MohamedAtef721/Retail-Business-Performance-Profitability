@@ -289,5 +289,3 @@ Computer Science Graduate | Data Analyst & BI Developer
 ---
 
 *This project demonstrates a business-oriented analytics workflow, from understanding the business problem and assessing data quality to identifying profitability risks and communicating actionable insights.*
-
-01_data_quality_assessment.ipynb
