@@ -254,7 +254,7 @@ retail-business-analytics/
 │
 │
 └── powerbi/
-    └──
+    └──ShopSphere_Retail_Business_Analytics.pbix
 ```
 
 *The structure represents the intended project organization; files and folders may be added as development progresses.*
