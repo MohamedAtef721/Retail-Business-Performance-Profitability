@@ -236,10 +236,9 @@ retail-business-analytics/
 ├── data_catalog.md
 │
 ├── data/
-│   ├── README.md
-│   ├── raw/
-│   └── processed/
-│       └── shopsphere_historical.csv
+│   ├── shopsphere_raw.xls
+│   └── shopsphere_historical.csv
+│    
 │
 ├── docs/
 │   ├── business_problem.md
@@ -252,13 +251,10 @@ retail-business-analytics/
 │   ├── 01_data_quality_assessment.ipynb
 │   └── 02_baseline_business_performance.ipynb
 │
-├── src/
-│   └── data_quality.py
 │
-├── reports/
 │
 └── powerbi/
-    └── README.md
+    └──
 ```
 
 *The structure represents the intended project organization; files and folders may be added as development progresses.*
