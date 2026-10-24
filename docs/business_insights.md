@@ -116,7 +116,71 @@ The discount analysis was extended to Furniture, Office Supplies, and Technology
 
 **Recommended action:** Investigate the products contributing to these losses before recommending category-wide discount restrictions.
 
-## 5. Cross-Category Interpretation
+## 5. Product-Level Loss Analysis
+
+The product-level analysis identified the 15 products with the largest aggregate losses in the date-filtered dataset.
+
+### Finding 6: Losses are concentrated in several identifiable products
+
+The 15 products recorded a combined aggregate loss of approximately 30,409.56.
+
+The largest individual losses were:
+
+| Product | Category | Total Profit | Average Discount |
+|---|---|---:|---:|
+| Cubify CubeX 3D Printer Double Head Print | Technology | -8,879.97 | 53% |
+| Lexmark MX611dhe Monochrome Laser Printer | Technology | -4,589.97 | 40% |
+| Chromcraft Bull-Nose Wood Oval Conference Table | Furniture | -2,876.12 | 28% |
+| GBC DocuBind P400 Electric Binding System | Office Supplies | -1,878.17 | 45% |
+| Cisco TelePresence System EX90 Videoconferencing System | Technology | -1,811.08 | 50% |
+
+**Business implication:** Certain products generate substantial losses despite recording sales. These products warrant further investigation into pricing, costs, discount levels, and transaction-level profitability.
+
+### Finding 7: Machines and Tables warrant further investigation
+
+Several products in the Machines and Tables sub-categories appear among the 15 largest product-level losses.
+
+This pattern suggests that these sub-categories should be investigated further to determine whether losses are concentrated in a few products or reflect a broader profitability issue.
+
+**Recommended action:** Analyze aggregate profit by sub-category, then investigate individual transactions for the products with the largest losses.
+
+### Analytical limitation
+
+The product-level results identify loss-making products but do not establish why the losses occurred. Average discounts are descriptive indicators and should not be treated as proof that discounts caused the losses.
+
+The findings should be validated through sub-category analysis and transaction-level investigation before final pricing recommendations are made.
+
+## Sub-Category Profitability Analysis
+
+The sub-category analysis identified three sub-categories with negative aggregate profit in the date-filtered dataset.
+
+| Category | Sub-Category | Total Sales | Total Profit | Profit Margin |
+|---|---|---:|---:|---:|
+| Furniture | Tables | 184,795.12 | -15,822.42 | -8.56% |
+| Furniture | Bookcases | 108,827.77 | -3,115.69 | -2.86% |
+| Office Supplies | Supplies | 43,645.85 | -1,235.62 | -2.83% |
+
+### Finding 8: Furniture contains the most significant sub-category losses
+
+Tables recorded the largest aggregate loss at 15,822.42, followed by Bookcases at 3,115.69.
+
+**Business implication:** Furniture warrants further investigation, particularly the Tables and Bookcases sub-categories, because both generate sales while recording negative aggregate profit.
+
+**Recommended action:** Identify the products responsible for these losses and examine their discount levels and transaction-level profitability before proposing pricing changes.
+
+### Finding 9: Aggregate sub-category profit can hide individual product losses
+
+Machines generated positive aggregate profit of 7,997.60, despite several individual Machines products appearing among the largest loss-making products.
+
+**Business implication:** A profitable sub-category can still contain products that consistently lose money.
+
+**Recommended action:** Evaluate profitability at both sub-category and product levels to avoid overlooking individual products with significant losses.
+
+### Analytical limitation
+
+These findings describe aggregate performance within the observed dataset. They do not establish the causes of the losses or prove that discounts are responsible.
+
+## 6. Cross-Category Interpretation
 
 The findings indicate that profitability patterns differ across product categories.
 
@@ -128,7 +192,7 @@ These observations support a more detailed investigation of discount policies by
 
 They do not establish a universal discount threshold. Different products may have different cost structures, and the number of observations varies substantially between discount groups.
 
-## 6. Initial Business Recommendations
+## 7. Initial Business Recommendations
 
 Based on the current findings, the following actions are proposed for further investigation:
 
@@ -141,7 +205,7 @@ Based on the current findings, the following actions are proposed for further in
 
 These recommendations are preliminary and should be refined as further analysis becomes available.
 
-## 7. Data and Analytical Limitations
+## 8. Data and Analytical Limitations
 
 - The business scenario is simulated using the Sample Superstore dataset. The findings should not be interpreted as actual results for a real company named ShopSphere.
 - Future-dated records require source validation.
@@ -151,7 +215,46 @@ These recommendations are preliminary and should be refined as further analysis 
 - The dataset does not contain all information needed to evaluate marketing ROI, shipping cost efficiency, or product returns directly.
 - Product-level investigation is still required before making specific pricing recommendations.
 
-## 8. Next Steps
+## Product Risk Concentration Analysis
+
+The product risk analysis measured the number and proportion of loss-making products within each sub-category.
+
+### Finding 10: Tables has the highest proportion of loss-making products
+
+Furniture - Tables has 41 loss-making products out of 56, representing 73.21% of the products in the sub-category.
+
+The aggregate losses across these loss-making products total 19,557.98, while the overall sub-category profit is -15,822.42.
+
+**Business implication:** Losses in Tables are not limited to a single product. The high proportion of loss-making products suggests a broader profitability concern that warrants further investigation.
+
+### Finding 11: Machines has the largest combined losses among loss-making products
+
+Technology - Machines has 22 loss-making products out of 62, representing 35.48%. These products have combined losses of 20,460.84, even though the sub-category overall reports positive profit of 7,997.60.
+
+**Business implication:** Profitable products offset the losses generated by other products in the same sub-category. Aggregate profitability alone can therefore hide significant product-level risks.
+
+### Finding 12: Bookcases also shows broad product-level profitability concerns
+
+Furniture - Bookcases has 31 loss-making products out of 49, representing 63.27%, with combined losses of 6,833.77 across loss-making products.
+
+**Business implication:** Together, Tables and Bookcases suggest that Furniture should receive priority in the next stage of product-level investigation.
+
+### Recommended investigation priorities
+
+1. **Furniture - Tables:** Investigate the high proportion of loss-making products and the sub-category's negative overall profit.
+2. **Technology - Machines:** Identify the products contributing most to losses despite the sub-category's positive overall profit.
+3. **Furniture - Bookcases:** Investigate the high proportion of loss-making products and the negative overall profit.
+4. **Other sub-categories:** Review loss-making products with material financial impact before considering broader policy changes.
+
+### Interpretation notes
+
+`Total_Product_Loss` is the sum of negative product-level profit values only. It is not the same as the net profit of the entire sub-category, which includes both profitable and loss-making products.
+
+Products with exactly zero profit are excluded from both the loss-making and profitable product counts.
+
+These findings identify where further investigation should be prioritized. They do not establish the causes of losses or prove that discounts are responsible.
+
+## 9. Next Steps
 
 1. Identify the 15 products with the largest aggregate losses.
 2. Examine their discount levels, sales, profit, and transaction volumes.
@@ -160,7 +263,7 @@ These recommendations are preliminary and should be refined as further analysis 
 5. Convert validated findings into business requirements and Power BI visuals.
 6. Develop an executive dashboard that connects sales performance, profitability, discount exposure, and product-level risks.
 
-## 9. Current Status
+## 10. Current Status
 
 **Completed**
 - Initial data quality assessment.
