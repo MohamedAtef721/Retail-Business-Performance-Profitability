@@ -282,6 +282,7 @@ retail-business-analytics/
 
 Computer Science Graduate | Data Analyst & BI Developer
 
+- Linkedin: [MohamedAtef](https://www.linkedin.com/in/mohamed-atef22/)
 - GitHub: [MohamedAtef721](https://github.com/MohamedAtef721)
 - Portfolio: [mohamedatef-ten.vercel.app](https://mohamedatef-ten.vercel.app/)
 
