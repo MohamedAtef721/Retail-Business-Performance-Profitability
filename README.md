@@ -159,6 +159,7 @@ Performed business-focused analysis to understand sales and profitability patter
 The completed Power BI report translates the analytical findings into six interactive dashboard pages.
 
 #### Page 1 — Executive Overview
+![Page 1 — Executive Overview](images/Executive%20Overview.png)
 
 Provides a high-level summary of overall business performance.
 
@@ -171,6 +172,7 @@ Provides a high-level summary of overall business performance.
 - Profit by Region
 
 #### Page 2 — Profitability Analysis
+![Page 2 — Profitability Analysis](images/Profitability%20Analysis.png)
 
 Examines profitability patterns across discounts, categories, and products.
 
@@ -182,6 +184,7 @@ Examines profitability patterns across discounts, categories, and products.
 - Interactive filtering by category, region, and segment
 
 #### Page 3 — Product Performance
+![Page 3 — Product Performance](images/Product%20Performance.png)
 
 Evaluates individual product contributions to business profitability.
 
@@ -195,6 +198,7 @@ Evaluates individual product contributions to business profitability.
 - Product-level sales, profit, margin, and discount analysis
 
 #### Page 4 — Customer Segment Performance
+![Page 4 — Customer Segment Performance](images/Customer%20Segment%20Performance.png)
 
 Compares business performance across Consumer, Corporate, and Home Office segments.
 
@@ -206,6 +210,7 @@ Compares business performance across Consumer, Corporate, and Home Office segmen
 - Total Customers
 
 #### Page 5 — Geographic Performance
+![Page 5 — Geographic Performance](images/Geographic%20Performance.png)
 
 Evaluates sales and profitability across geographic areas.
 
@@ -220,6 +225,7 @@ Evaluates sales and profitability across geographic areas.
 - City Profitability Analysis
 
 #### Page 6 — Shipping Mode Performance
+![Page 6 — Shipping Mode Performance](images/Shipping%20Mode%20Performance.png)
 
 Examines business performance and shipping duration across shipping methods.
 
