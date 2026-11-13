@@ -1,311 +1,330 @@
-# Business Insights & Findings
+# ShopSphere | Retail Business Performance & Profitability
+## Business Insights & Findings
 
-## 1. Overview
+## 1. Executive Summary
 
-This document records the business insights identified during the Retail Business Analytics project using the Sample Superstore dataset.
+This report presents the key business insights identified through the ShopSphere Retail Business Performance & Profitability Analysis project.
 
-The objective is to understand sales performance, profitability, and potential business risks through data-driven analysis.
+The analysis focuses on sales performance, profitability, discount patterns, product performance, customer segments, geographic performance, and shipping modes.
 
-The project follows a structured analytical approach:
+The findings highlight areas of strong performance as well as opportunities to improve profitability, manage discount exposure, and identify loss-making products and sub-categories.
 
-1. Assess data quality and identify potential data issues.
-2. Establish baseline business performance.
-3. Investigate profitability across discount levels.
-4. Compare discount-related profitability patterns across product categories.
-5. Identify loss-making products and investigate potential causes.
-6. Translate validated findings into actionable business recommendations.
+## 2. Scope and Analytical Approach
 
-**Current status:** Initial baseline analysis and discount profitability analysis completed. Product-level investigation is the next step.
+The project uses the Sample Superstore dataset as the basis for a simulated retail business case study.
 
-## 2. Baseline Business Performance
+The analysis covers:
 
-The initial baseline was calculated using the full dataset and compared with records whose Order Date is on or before October 24, 2026.
+1. Overall sales and profitability performance.
+2. Monthly sales and profit trends.
+3. Profitability across discount levels.
+4. Product and sub-category performance.
+5. Customer segment performance.
+6. Geographic sales and profitability.
+7. Shipping mode performance.
 
-| KPI | Full Dataset | As of October 24, 2026 |
-|---|---:|---:|
-| Transaction Rows | 10,194 | 9,195 |
-| Total Sales | 2,326,534.35 | 2,115,813.28 |
-| Total Profit | 292,296.81 | 273,117.69 |
-| Profit Margin | 12.56% | 12.91% |
-| Distinct Orders | 5,111 | 4,588 |
-| Total Quantity | 38,654 | 34,787 |
+The analysis uses descriptive measures, including Total Sales, Total Profit, Profit Margin, Total Orders, Total Quantity, and Average Discount.
 
-### Finding 1: Future-dated records affect reported performance
+## 3. Baseline Business Performance
 
-The full dataset contains 999 transaction rows with Order Dates later than October 24, 2026.
+The historical analysis includes records with Order Dates on or before October 24, 2026.
 
-Including all records increases reported sales by 210,721.07 and reported profit by 19,179.12 compared with the date-filtered dataset.
+| KPI | Historical Performance |
+|---|---:|
+| Transaction Rows | 9,195 |
+| Total Sales | $2,115,813.28 |
+| Total Profit | $273,117.69 |
+| Profit Margin | 12.91% |
+| Total Orders | 4,588 |
+| Total Quantity | 34,787 |
 
-However, the overall profit margin decreases from 12.91% to 12.56%.
+The business generated more than $2.1 million in sales and approximately $273K in recorded profit, with an overall profit margin of 12.91%.
 
-**Business implication:** Unverified future-dated records can affect financial KPIs and time-based comparisons.
+## 4. Executive Overview and Time-Based Performance
 
-**Recommended action:** Investigate the source and business meaning of these dates before finalizing historical performance reporting. Do not delete the records without sufficient evidence.
+The Executive Overview provides a high-level view of the business through key performance indicators and time-based analysis.
 
-## 3. Discount and Profitability Analysis
+The dashboard highlights:
 
-Profitability was analyzed across discount levels using records with Order Dates on or before October 24, 2026.
+- Total Sales and Total Profit.
+- Overall Profit Margin.
+- Total Orders.
+- Monthly Sales and Profit Trends.
+- Sales by Category.
+- Profit by Region.
 
-Profit Margin is calculated as:
+These metrics provide a consolidated view of business performance and help identify changes in sales activity and profitability over time.
 
-`Profit Margin = Total Profit / Total Sales × 100`
+## 5. Discount and Profitability Analysis
 
-### Finding 2: High discount levels are associated with negative profitability
+The analysis compares profitability across different discount levels to identify discount groups associated with positive and negative profit.
 
-The analysis identified several discount levels with negative aggregate profit.
+### Key Finding: Higher discount levels are associated with negative profitability
 
 | Discount | Total Sales | Total Profit | Profit Margin |
 |---:|---:|---:|---:|
-| 30% | 96,218.60 | -9,754.22 | -10.14% |
-| 40% | 106,128.86 | -20,744.63 | -19.55% |
-| 50% | 49,747.94 | -16,120.13 | -32.40% |
-| 60% | 6,128.19 | -5,212.27 | -85.05% |
-| 70% | 38,457.31 | -37,830.61 | -98.37% |
-| 80% | 12,834.68 | -23,705.38 | -184.70% |
+| 30% | $96,218.60 | -$9,754.22 | -10.14% |
+| 40% | $106,128.86 | -$20,744.63 | -19.55% |
+| 50% | $49,747.94 | -$16,120.13 | -32.40% |
+| 60% | $6,128.19 | -$5,212.27 | -85.05% |
+| 70% | $38,457.31 | -$37,830.61 | -98.37% |
+| 80% | $12,834.68 | -$23,705.38 | -184.70% |
 
-**Business implication:** Some high-discount transactions may be contributing to substantial financial losses.
+The results show that several higher discount groups generate negative aggregate profit.
 
-**Recommended action:** Review the profitability of heavily discounted products and investigate whether discount approval rules or minimum margin thresholds are needed.
+### Category-Level Findings
 
-**Important limitation:** These results show an association between discount levels and profitability. They do not prove that discounts alone caused the losses. Product costs, product mix, pricing, and other factors may also influence profitability.
+**Furniture**
 
-## 4. Category-Level Profitability Findings
+Furniture profitability declines across the observed discount groups, with negative aggregate profit at discount levels of 30% and 40%.
 
-The discount analysis was extended to Furniture, Office Supplies, and Technology to identify differences across product categories.
+**Office Supplies**
 
-### Finding 3: Furniture profitability declines at higher discount levels
+The 70% and 80% discount groups generate substantial aggregate losses.
 
-| Discount | Total Profit | Profit Margin |
-|---:|---:|---:|
-| 0% | 53,738.95 | 23.00% |
-| 10% | 6,533.59 | 15.04% |
-| 20% | 6,317.22 | 3.13% |
-| 30% | -10,080.25 | -10.90% |
-| 40% | -14,132.41 | -35.83% |
+**Technology**
 
-**Business implication:** Furniture shows a substantial decline in aggregate profitability as discounts increase across the observed groups.
+Technology records strong profitability in the zero-discount group, while several higher discount groups generate negative aggregate profit.
 
-**Recommended action:** Investigate furniture products sold at discounts of 30% or more and assess whether their pricing and discount policies protect target margins.
+### Business Recommendations
 
-### Finding 4: High discounts are associated with losses in Office Supplies
+- Review products associated with high discount levels and negative profit.
+- Evaluate discount policies separately across product categories.
+- Consider minimum profit margin thresholds when reviewing discount decisions.
+- Monitor profit and profit margin alongside sales when evaluating discount performance.
 
-| Discount | Total Profit | Profit Margin |
-|---:|---:|---:|
-| 0% | 122,713.59 | 29.93% |
-| 10% | 1,086.08 | 25.12% |
-| 20% | 35,499.93 | 16.33% |
-| 70% | -15,705.87 | -73.58% |
-| 80% | -23,705.38 | -184.70% |
+These findings describe observed relationships between discount levels and profitability.
 
-**Business implication:** The highest observed discount levels in Office Supplies are associated with substantial aggregate losses.
+## 6. Product Performance and Profitability
 
-**Recommended action:** Examine the products sold at 70% and 80% discounts, considering both total loss and the number of transaction rows.
+Product performance analysis evaluates products based on sales, profit, and profit margin.
 
-### Finding 5: Technology profitability also becomes negative at higher discounts
+The dashboard includes:
 
-| Discount | Total Profit | Profit Margin |
-|---:|---:|---:|
-| 0% | 119,931.01 | 33.75% |
-| 10% | 832.08 | 24.39% |
-| 20% | 42,835.81 | 14.61% |
-| 40% | -6,582.89 | -9.88% |
-| 50% | -3,515.46 | -12.05% |
-| 70% | -18,579.36 | -125.09% |
+- Total Products.
+- Profitable Products.
+- Loss-Making Products.
+- Loss-Making Products %.
+- Top 10 Profitable Products.
+- Top 10 Loss-Making Products.
+- Product Performance Details.
 
-**Business implication:** Technology has strong aggregate profitability in the zero-discount group, while some higher-discount groups generate negative profit.
+### Key Finding: Product sales do not always translate into profitability
 
-**Recommended action:** Investigate the products contributing to these losses before recommending category-wide discount restrictions.
+Some products generate substantial sales while recording negative profit.
 
-## 5. Product-Level Loss Analysis
+The largest individual product losses include:
 
-The product-level analysis identified the 15 products with the largest aggregate losses in the date-filtered dataset.
+| Product | Category | Total Profit |
+|---|---|---:|
+| Cubify CubeX 3D Printer Double Head Print | Technology | -$8,879.97 |
+| Lexmark MX611dhe Monochrome Laser Printer | Technology | -$4,589.97 |
+| Chromcraft Bull-Nose Wood Oval Conference Table | Furniture | -$2,876.12 |
+| GBC DocuBind P400 Electric Binding System | Office Supplies | -$1,878.17 |
+| Cisco TelePresence System EX90 Videoconferencing System | Technology | -$1,811.08 |
 
-### Finding 6: Losses are concentrated in several identifiable products
+### Business Recommendations
 
-The 15 products recorded a combined aggregate loss of approximately 30,409.56.
+- Review products with the largest negative profit.
+- Evaluate selling prices, costs, and discount levels.
+- Monitor product-level profit margins.
+- Prioritize products based on their contribution to overall losses.
 
-The largest individual losses were:
+## 7. Sub-Category Profitability and Risk Concentration
 
-| Product | Category | Total Profit | Average Discount |
-|---|---|---:|---:|
-| Cubify CubeX 3D Printer Double Head Print | Technology | -8,879.97 | 53% |
-| Lexmark MX611dhe Monochrome Laser Printer | Technology | -4,589.97 | 40% |
-| Chromcraft Bull-Nose Wood Oval Conference Table | Furniture | -2,876.12 | 28% |
-| GBC DocuBind P400 Electric Binding System | Office Supplies | -1,878.17 | 45% |
-| Cisco TelePresence System EX90 Videoconferencing System | Technology | -1,811.08 | 50% |
-
-**Business implication:** Certain products generate substantial losses despite recording sales. These products warrant further investigation into pricing, costs, discount levels, and transaction-level profitability.
-
-### Finding 7: Machines and Tables warrant further investigation
-
-Several products in the Machines and Tables sub-categories appear among the 15 largest product-level losses.
-
-This pattern suggests that these sub-categories should be investigated further to determine whether losses are concentrated in a few products or reflect a broader profitability issue.
-
-**Recommended action:** Analyze aggregate profit by sub-category, then investigate individual transactions for the products with the largest losses.
-
-### Analytical limitation
-
-The product-level results identify loss-making products but do not establish why the losses occurred. Average discounts are descriptive indicators and should not be treated as proof that discounts caused the losses.
-
-The findings should be validated through sub-category analysis and transaction-level investigation before final pricing recommendations are made.
-
-## Sub-Category Profitability Analysis
-
-The sub-category analysis identified three sub-categories with negative aggregate profit in the date-filtered dataset.
+The sub-category analysis identifies areas with negative aggregate profit.
 
 | Category | Sub-Category | Total Sales | Total Profit | Profit Margin |
 |---|---|---:|---:|---:|
-| Furniture | Tables | 184,795.12 | -15,822.42 | -8.56% |
-| Furniture | Bookcases | 108,827.77 | -3,115.69 | -2.86% |
-| Office Supplies | Supplies | 43,645.85 | -1,235.62 | -2.83% |
+| Furniture | Tables | $184,795.12 | -$15,822.42 | -8.56% |
+| Furniture | Bookcases | $108,827.77 | -$3,115.69 | -2.86% |
+| Office Supplies | Supplies | $43,645.85 | -$1,235.62 | -2.83% |
 
-### Finding 8: Furniture contains the most significant sub-category losses
+### Key Finding: Furniture contains the largest sub-category losses
 
-Tables recorded the largest aggregate loss at 15,822.42, followed by Bookcases at 3,115.69.
+Tables records the largest aggregate loss, followed by Bookcases.
 
-**Business implication:** Furniture warrants further investigation, particularly the Tables and Bookcases sub-categories, because both generate sales while recording negative aggregate profit.
+The product risk analysis also highlights a high proportion of loss-making products in these sub-categories.
 
-**Recommended action:** Identify the products responsible for these losses and examine their discount levels and transaction-level profitability before proposing pricing changes.
+- Tables: 41 loss-making products out of 56 (73.21%).
+- Bookcases: 31 loss-making products out of 49 (63.27%).
+- Machines: 22 loss-making products out of 62 (35.48%).
 
-### Finding 9: Aggregate sub-category profit can hide individual product losses
+Machines generates positive overall sub-category profit of $7,997.60, despite losses across several individual products.
 
-Machines generated positive aggregate profit of 7,997.60, despite several individual Machines products appearing among the largest loss-making products.
+### Business Recommendations
 
-**Business implication:** A profitable sub-category can still contain products that consistently lose money.
+- Prioritize Tables and Bookcases for profitability improvement.
+- Investigate loss-making products within Machines.
+- Evaluate performance at both product and sub-category levels.
+- Monitor the concentration of losses across products.
 
-**Recommended action:** Evaluate profitability at both sub-category and product levels to avoid overlooking individual products with significant losses.
+## 8. Customer Segment Performance
 
-### Analytical limitation
+The customer segment analysis compares Consumer, Corporate, and Home Office performance.
 
-These findings describe aggregate performance within the observed dataset. They do not establish the causes of the losses or prove that discounts are responsible.
+| Segment | Orders | Total Sales | Total Profit | Profit Margin |
+|---|---:|---:|---:|---:|
+| Consumer | 2,349 | $1.065M | $124K | 12% |
+| Corporate | 1,395 | $0.649M | $94K | 15% |
+| Home Office | 844 | $0.402M | $55K | 14% |
 
-## 6. Cross-Category Interpretation
+### Key Findings
 
-The findings indicate that profitability patterns differ across product categories.
+- Consumer is the largest segment in sales, profit, and order volume.
+- Corporate records the highest profit margin at approximately 15%.
+- Home Office has the lowest sales and order volume among the three segments.
 
-- Furniture shows negative aggregate profit beginning at the observed 30% discount level.
-- Office Supplies shows substantial losses in the observed 70% and 80% discount groups.
-- Technology shows negative aggregate profit at several observed discount levels, including 40%, 50%, and 70%.
+The dashboard also evaluates customer distribution using Total Customers and Customers by Segment.
 
-These observations support a more detailed investigation of discount policies by category and product.
+### Business Recommendations
 
-They do not establish a universal discount threshold. Different products may have different cost structures, and the number of observations varies substantially between discount groups.
+- Maintain the Consumer segment's strong sales contribution.
+- Examine the practices and product mix associated with Corporate's higher margin.
+- Explore opportunities to increase Home Office sales and customer activity.
+- Evaluate customer volume alongside revenue and profitability.
 
-## 7. Initial Business Recommendations
+## 9. Geographic Performance
 
-Based on the current findings, the following actions are proposed for further investigation:
+Geographic Performance examines sales and profitability across regions, states or provinces, and cities.
 
-1. **Validate future-dated records** before using the full dataset for historical reporting.
-2. **Review high-discount transactions** with negative aggregate profit.
-3. **Investigate loss-making products** to determine which products contribute most to total losses.
-4. **Evaluate discount policies by category** rather than applying the same assumptions to all products.
-5. **Track sales and profitability together**, since high sales do not necessarily indicate strong profitability.
-6. **Validate findings at product level** before recommending changes to prices or discount approval rules.
+The analysis uses the following KPIs:
 
-These recommendations are preliminary and should be refined as further analysis becomes available.
+- Total Sales.
+- Total Profit.
+- Profit Margin %.
+- Geographic Areas Served.
+- Cities Served.
 
-## 8. Data and Analytical Limitations
+### Regional Performance
 
-- The business scenario is simulated using the Sample Superstore dataset. The findings should not be interpreted as actual results for a real company named ShopSphere.
-- Future-dated records require source validation.
-- Repeated Order ID and Product ID combinations have been identified, but their intended transaction-line structure has not yet been confirmed.
-- Discount-level comparisons are descriptive and do not prove causation.
-- The number of transaction rows varies across discount groups, which can affect the reliability of comparisons.
-- The dataset does not contain all information needed to evaluate marketing ROI, shipping cost efficiency, or product returns directly.
-- Product-level investigation is still required before making specific pricing recommendations.
+The regional analysis compares the four business regions:
 
-## Product Risk Concentration Analysis
+- West
+- East
+- Central
+- South
 
-The product risk analysis measured the number and proportion of loss-making products within each sub-category.
+Sales and profit are evaluated together to identify regions contributing most to overall business performance.
 
-### Finding 10: Tables has the highest proportion of loss-making products
+### Geographic Sales Distribution
 
-Furniture - Tables has 41 loss-making products out of 56, representing 73.21% of the products in the sub-category.
+The geographic map displays sales distribution across locations using city, state or province, and country information.
 
-The aggregate losses across these loss-making products total 19,557.98, while the overall sub-category profit is -15,822.42.
+This provides a geographic view of business reach and sales concentration.
 
-**Business implication:** Losses in Tables are not limited to a single product. The high proportion of loss-making products suggests a broader profitability concern that warrants further investigation.
+### State/Province Performance
 
-### Finding 11: Machines has the largest combined losses among loss-making products
+The State/Province Performance visual highlights locations with the lowest total profit.
 
-Technology - Machines has 22 loss-making products out of 62, representing 35.48%. These products have combined losses of 20,460.84, even though the sub-category overall reports positive profit of 7,997.60.
+This helps identify geographic areas that may require closer attention to improve profitability.
 
-**Business implication:** Profitable products offset the losses generated by other products in the same sub-category. Aggregate profitability alone can therefore hide significant product-level risks.
+### City Profitability Analysis
 
-### Finding 12: Bookcases also shows broad product-level profitability concerns
+The city-level scatter chart compares Total Sales and Total Profit.
 
-Furniture - Bookcases has 31 loss-making products out of 49, representing 63.27%, with combined losses of 6,833.77 across loss-making products.
+It also uses order volume to provide additional context when evaluating city performance.
 
-**Business implication:** Together, Tables and Bookcases suggest that Furniture should receive priority in the next stage of product-level investigation.
+### Key Business Insights
 
-### Recommended investigation priorities
+- Regional performance provides an overview of sales and profit contribution.
+- State and province analysis helps identify lower-profit geographic areas.
+- City-level analysis highlights differences in sales and profitability across locations.
+- Geographic performance should be evaluated using both revenue and profit rather than sales alone.
 
-1. **Furniture - Tables:** Investigate the high proportion of loss-making products and the sub-category's negative overall profit.
-2. **Technology - Machines:** Identify the products contributing most to losses despite the sub-category's positive overall profit.
-3. **Furniture - Bookcases:** Investigate the high proportion of loss-making products and the negative overall profit.
-4. **Other sub-categories:** Review loss-making products with material financial impact before considering broader policy changes.
+### Business Recommendations
 
-### Interpretation notes
+- Monitor sales and profit across all regions.
+- Investigate states and provinces with negative or low profit.
+- Evaluate cities with high sales but relatively low profitability.
+- Use geographic performance to support regional planning and resource allocation.
 
-`Total_Product_Loss` is the sum of negative product-level profit values only. It is not the same as the net profit of the entire sub-category, which includes both profitable and loss-making products.
+## 10. Shipping Mode Performance
 
-Products with exactly zero profit are excluded from both the loss-making and profitable product counts.
+The shipping analysis compares performance across the available shipping modes.
 
-These findings identify where further investigation should be prioritized. They do not establish the causes of losses or prove that discounts are responsible.
+The dashboard evaluates:
 
-## Product-Level Loss Investigation
+- Total Sales by Ship Mode.
+- Total Profit by Ship Mode.
+- Total Orders by Ship Mode.
+- Average Shipping Duration.
+- Profit Margin by Ship Mode.
 
-### Finding 13: Cubify CubeX 3D Printer has the largest individual product loss
+### Key Findings
 
-The Cubify CubeX 3D Printer Double Head Print recorded sales of 11,099.96 and a loss of 8,879.97, with an average discount of 53% and a profit margin of -80%.
+- Standard Class contributes the largest sales and profit.
+- Same Day records the highest profit margin at approximately 18%.
+- Standard Class has the longest average shipping duration at approximately 4.99 days.
+- Same Day has the shortest average shipping duration at approximately 0.05 days.
+- Overall Average Shipping Duration is approximately 3.96 days.
 
-**Business implication:** Review the product's selling price, acquisition cost, and discount policy to understand the sources of its negative profitability.
+Shipping duration is calculated as the elapsed calendar days between Order Date and Ship Date.
 
-### Finding 14: High sales do not necessarily translate into profit
+### Business Recommendations
 
-The Cisco TelePresence System EX90 Videoconferencing product generated sales of 22,638.48 but recorded a loss of 1,811.08. Its average discount was 50%.
+- Continue monitoring the contribution of each shipping mode to sales and profit.
+- Compare shipping duration alongside order volume and profitability.
+- Evaluate the relationship between delivery speed and customer service objectives.
+- Monitor shipping mode performance over time.
 
-**Business implication:** Sales performance should be evaluated alongside profit and profit margin. Revenue alone is insufficient to assess product performance.
+## 11. Consolidated Business Recommendations
 
-### Finding 15: Losses affect multiple products across priority sub-categories
+Based on the overall analysis, the following actions are recommended:
 
-The top loss-making products include several items from Furniture - Tables, Furniture - Bookcases, and Technology - Machines.
+1. **Improve discount management:** Review high-discount groups associated with negative profitability.
+2. **Focus on loss-making products:** Prioritize products with the largest negative profit.
+3. **Improve sub-category profitability:** Give particular attention to Tables and Bookcases.
+4. **Evaluate customer segments:** Maintain strong-performing segments while exploring growth opportunities in lower-volume segments.
+5. **Monitor geographic performance:** Identify and investigate lower-profit states, provinces, and cities.
+6. **Evaluate shipping performance:** Consider sales, profit, order volume, and shipping duration together.
+7. **Use profitability-focused KPIs:** Evaluate business performance using profit and margin alongside sales.
 
-**Business implication:** The findings support investigating individual products within these sub-categories rather than relying exclusively on sub-category totals.
+## 12. Data Quality and Analytical Limitations
 
-### Recommended Actions
+The project uses the Sample Superstore dataset as a proxy for a simulated retail business scenario. The findings should not be interpreted as actual results for a real company named ShopSphere.
 
-1. Review the cost and selling price of the Cubify CubeX 3D Printer.
-2. Investigate products with high sales but negative profit, including the Cisco TelePresence System EX90.
-3. Review discount levels alongside product costs and profit margins.
-4. Prioritize loss-making products based on their financial impact and recurrence.
-5. Validate findings against reliable cost and pricing records before changing commercial policies.
+The analysis is based on the dataset's recorded fields and measures.
 
-### Limitations
+Key analytical considerations:
 
-These findings are descriptive and do not establish that discounts caused the observed losses. The analysis uses the dataset's recorded Profit field and does not independently verify the underlying cost calculations.
+- Discount comparisons are descriptive and do not establish causation.
+- Shipping duration represents elapsed calendar days, not business days.
+- The dataset does not contain Shipping Cost, so shipping cost efficiency cannot be evaluated directly.
+- The dataset does not provide sufficient information to calculate marketing ROI or customer acquisition cost.
+- Product returns are not included in the available analysis.
+- Total Recorded Profit should be interpreted according to the dataset's recorded Profit field.
 
-## 9. Next Steps
+## 13. Next Steps
 
-1. Identify the 15 products with the largest aggregate losses.
-2. Examine their discount levels, sales, profit, and transaction volumes.
-3. Investigate whether losses are concentrated in particular products or sub-categories.
-4. Perform time-based analysis after validating the future-dated records.
-5. Convert validated findings into business requirements and Power BI visuals.
-6. Develop an executive dashboard that connects sales performance, profitability, discount exposure, and product-level risks.
+The project can be extended through:
 
-## 10. Current Status
+1. Further investigation of loss-making products and sub-categories.
+2. More detailed analysis of product and discount combinations.
+3. Monitoring profitability trends over time.
+4. Deeper investigation of geographic performance.
+5. Continued evaluation of customer segment performance.
+6. Development of additional performance measures as more business data becomes available.
 
-**Completed**
-- Initial data quality assessment.
-- Baseline business performance calculation.
-- Discount-level profitability analysis.
-- Category-level discount profitability analysis.
+## 14. Power BI Project Status
 
-**In Progress**
-- Product-level loss investigation.
-- Validation of future-dated records.
-- Finalization of business recommendations.
+The Power BI report includes the following dashboard pages:
 
-The project will continue to prioritize validated business findings over assumptions, with each recommendation supported by documented analysis.
+| Page | Dashboard |
+|---|---|
+| 01 | Executive Overview |
+| 02 | Profitability Analysis |
+| 03 | Product Performance |
+| 04 | Customer Segment Performance |
+| 05 | Geographic Performance |
+| 06 | Shipping Mode Performance |
+
+Each page provides a focused view of business performance and supports the overall objective of understanding sales, profitability, and operational patterns.
+
+## 15. Conclusion
+
+The ShopSphere Retail Business Performance & Profitability Analysis provides an integrated view of business performance across sales, profitability, products, customer segments, geography, and shipping modes.
+
+The analysis highlights the importance of evaluating profitability alongside revenue, identifying loss-making products, managing discount exposure, and monitoring performance across different business dimensions.
+
+The Power BI dashboard translates these findings into an interactive reporting solution that supports performance monitoring and data-driven business decisions.
