@@ -4,41 +4,44 @@
 
 ## 📌 Project Overview
 
-ShopSphere is a business analytics case study focused on understanding retail sales performance, identifying profitability issues, and supporting data-driven business decisions.
+ShopSphere is a business analytics case study focused on understanding retail sales performance, identifying profitability challenges, and supporting data-driven business decisions.
 
-The project simulates a business scenario in which a retail company generates substantial sales but faces profitability challenges across certain products and sub-categories.
+The project simulates a retail business scenario in which strong sales performance does not always translate into strong profitability across products, sub-categories, customer segments, and geographic areas.
 
-Using a Sample Superstore dataset, the analysis follows a business-oriented workflow, starting with business requirements and data quality assessment, followed by exploratory data analysis using Python and an interactive Power BI dashboard.
+Using a Sample Superstore-style dataset, the project follows an end-to-end business analytics workflow, starting with business understanding and data quality assessment, followed by exploratory data analysis using Python and an interactive six-page Power BI dashboard.
 
-> **Note:** ShopSphere is a fictional business scenario. The analysis is based on the available dataset and does not represent actual company records.
+> **Note:** ShopSphere is a fictional business scenario. The analysis uses the Sample Superstore dataset as a proxy and does not represent actual company records.
 
 ## 🎯 Business Problem
 
-High sales do not necessarily translate into high profits. Retail businesses need to understand which products generate losses, how discount levels relate to profitability, and where management should focus its improvement efforts.
+High sales do not necessarily translate into high profits. Retail businesses need to understand which products generate losses, how discount levels relate to profitability, and which business areas require further investigation.
 
 This project addresses the following business questions:
 
 - How are sales and profits performing overall?
 - Which categories and sub-categories contribute most to profitability?
 - Which products generate the largest losses?
-- How are discount levels associated with profit margins?
-- Which products require further pricing and cost investigation?
+- How do discount levels relate to profit margins?
+- Which customer segments contribute most to sales and profit?
+- Which geographic areas demonstrate strong or weak profitability?
+- How does performance vary across shipping modes?
 - What actions can management take to improve profitability?
 
 ## 🎯 Project Objectives
 
 - Translate business problems into measurable analytical requirements.
-- Assess data quality and identify potential reliability issues.
+- Assess data quality and document relevant data considerations.
 - Analyze sales, profit, profit margins, discounts, and product performance.
 - Identify loss-making products and prioritize business investigations.
-- Develop interactive Power BI reports to communicate findings.
+- Evaluate customer segment, geographic, and shipping-mode performance.
+- Develop interactive Power BI dashboards to communicate findings.
 - Turn analytical results into actionable business recommendations.
 
 ## 🛠️ Tools & Technologies
 
 | Tool | Purpose |
 |---|---|
-| Python | Data analysis and exploratory analysis |
+| Python | Data analysis and exploratory data analysis |
 | Pandas | Data manipulation and aggregation |
 | NumPy | Numerical analysis |
 | Matplotlib | Data visualization |
@@ -51,49 +54,64 @@ This project addresses the following business questions:
 
 The project uses a Sample Superstore-style retail dataset containing order, customer, product, sales, discount, and profit information.
 
-**Original dataset:**
-- 10,194 rows
-- 21 columns
-- 5,111 unique order IDs
+**Original Dataset**
 
-**Historical analytical dataset:**
-- 9,195 rows
-- 4,588 unique order IDs
-- Orders dated on or before October 24, 2026
+- 10,194 transaction rows
+- 21 columns
+- 5,111 unique Order IDs
+- 1,862 distinct Product IDs
+
+**Historical Analytical Dataset**
+
+- 9,195 transaction rows
+- 4,588 unique Order IDs
+- Order Dates on or before October 24, 2026
 
 ### Key Data Fields
 
 | Field | Description |
 |---|---|
-| Order ID | Unique order identifier |
+| Order ID | Order identifier |
 | Order Date | Date the order was placed |
 | Ship Date | Date the order was shipped |
+| Customer ID | Customer identifier |
 | Customer Name | Customer associated with the transaction |
 | Segment | Customer segment |
 | Region | Sales region |
+| State | State or province |
+| City | City |
 | Category | Main product category |
 | Sub-Category | Product sub-category |
+| Product ID | Product identifier |
 | Product Name | Product description |
 | Sales | Recorded sales amount |
 | Quantity | Quantity sold |
 | Discount | Discount applied |
 | Profit | Recorded profit amount |
+| Ship Mode | Shipping method |
 
 ### Data Quality Considerations
 
-The initial assessment identified the following:
+The initial assessment covered completeness, uniqueness, validity, and consistency.
+
+Key findings included:
 
 - No missing values across the 21 columns.
 - No exact duplicate rows.
 - No duplicate Row IDs.
-- No negative sales or quantities.
+- No non-positive Sales or Quantity values.
+- No negative Discount values or Discount values greater than 1.
 - No shipping dates earlier than order dates.
-- 999 rows with order dates after October 24, 2026.
-- 11 repeated Order ID–Product ID combinations requiring further investigation.
+- 1,901 transaction rows with negative Profit values.
+- 999 rows with Order Dates after October 24, 2026.
+- 1,040 rows with Ship Dates after October 24, 2026.
+- 11 repeated Order ID–Product ID combinations, representing 22 rows.
 
-Future-dated records were excluded from the historical analytical extract to support a time-bounded analysis. The original data remains unchanged, and the exclusion is an analytical decision rather than confirmation that those records are invalid.
+Future-dated records were excluded from the historical analytical extract to establish a consistent reporting period. The original dataset was preserved.
 
-Repeated order-product combinations were retained because they may represent legitimate transactions and should not be removed without verifying the source data's grain.
+Repeated Order ID–Product ID combinations were retained rather than automatically removed because they may represent separate transaction lines.
+
+Negative Profit values were treated as business signals for profitability analysis, not automatically as data errors.
 
 ## 🔍 Analytical Workflow
 
@@ -110,122 +128,216 @@ Repeated order-product combinations were retained because they may represent leg
 - Checked missing values and exact duplicates.
 - Validated sales, quantity, discount, and shipping dates.
 - Investigated future-dated orders and repeated order-product combinations.
-- Documented data quality findings and limitations.
+- Documented data quality findings and analytical considerations.
 
 ### 3. Exploratory Data Analysis (Python)
 
 Performed business-focused analysis to understand sales and profitability patterns.
 
-**Baseline Performance**
-- Total sales and profit.
+**Baseline Business Performance**
+
+- Total sales and recorded profit.
 - Overall profit margin.
 - Unique orders and total quantity.
 - Comparison between the complete dataset and the historical analytical period.
 
-**Discount Analysis**
+**Discount & Profitability Analysis**
+
 - Profitability across discount levels.
 - Comparison of discount patterns across product categories.
 - Identification of discount levels associated with negative aggregate profit.
 
 **Product & Sub-Category Analysis**
+
 - Profitability by category and sub-category.
 - Identification of loss-making products.
 - Ranking products by financial losses.
-- Assessment of the concentration of loss-making products within sub-categories.
+- Assessment of loss-making product concentration within sub-categories.
 
-### 4. Power BI Dashboard
+### 4. Power BI Dashboard Development
 
-The planned dashboard will translate the Python findings into interactive reports for business stakeholders.
+The completed Power BI report translates the analytical findings into six interactive dashboard pages.
 
-**Page 1 — Executive Overview**
+#### Page 1 — Executive Overview
+
+Provides a high-level summary of overall business performance.
+
 - Total Sales
 - Total Profit
-- Profit Margin
+- Profit Margin %
 - Total Orders
-- Total Quantity
-- Sales and profit trends over time
+- Monthly Sales & Profit Trend
+- Sales by Category
+- Profit by Region
 
-**Page 2 — Profitability Analysis**
-- Profit by category and sub-category
-- Profit margin comparison
-- Discount versus profitability analysis
-- Identification of underperforming areas
+#### Page 2 — Profitability Analysis
 
-**Page 3 — Product Performance**
-- Top and bottom products by profit
-- Loss-making product analysis
-- Product-level sales, profit, and discount details
-- Interactive filtering and drill-down analysis
+Examines profitability patterns across discounts, categories, and products.
 
-## 📈 Preliminary Business Findings
+- Profit by Discount Level
+- Profit by Sub-Category
+- Loss-Making Products
+- Profit Margin Analysis
+- Average Discount
+- Interactive filtering by category, region, and segment
 
-The initial analysis produced several findings that warrant further business investigation.
+#### Page 3 — Product Performance
 
-### 1. Overall Profitability
+Evaluates individual product contributions to business profitability.
+
+- Total Products
+- Profitable Products
+- Loss-Making Products
+- Loss-Making Products %
+- Top 10 Profitable Products
+- Top 10 Loss-Making Products
+- Product Performance Details
+- Product-level sales, profit, margin, and discount analysis
+
+#### Page 4 — Customer Segment Performance
+
+Compares business performance across Consumer, Corporate, and Home Office segments.
+
+- Sales by Segment
+- Profit by Segment
+- Profit Margin by Segment
+- Orders by Segment
+- Customers by Segment
+- Total Customers
+
+#### Page 5 — Geographic Performance
+
+Evaluates sales and profitability across geographic areas.
+
+- Total Sales
+- Total Profit
+- Profit Margin %
+- Geographic Areas Served
+- Cities Served
+- Sales & Profit by Region
+- Geographic Sales Distribution Map
+- State/Province Performance
+- City Profitability Analysis
+
+#### Page 6 — Shipping Mode Performance
+
+Examines business performance and shipping duration across shipping methods.
+
+- Total Sales
+- Total Profit
+- Total Orders
+- Average Shipping Duration
+- Sales by Ship Mode
+- Profit by Ship Mode
+- Orders by Ship Mode
+- Average Shipping Duration by Ship Mode
+- Shipping Mode Performance Summary
+
+## 📈 Key Business Findings
+
+The analysis identified several important profitability patterns and areas for further business investigation.
+
+### 1. Overall Business Performance
 
 For orders dated on or before October 24, 2026:
 
 | KPI | Value |
 |---|---:|
-| Total Sales | 2,115,813.28 |
-| Total Profit | 273,117.69 |
+| Total Sales | $2,115,813.28 |
+| Total Profit | $273,117.69 |
 | Profit Margin | 12.91% |
-| Unique Orders | 4,588 |
+| Total Orders | 4,588 |
 | Total Quantity | 34,787 |
 
-*These figures reflect the historical analytical extract and the dataset's recorded Profit field.*
+The historical dataset generated more than $2.1 million in sales and approximately $273K in recorded profit.
 
-### 2. Furniture — Tables
+### 2. Discount & Profitability
 
-- 41 of 56 products were loss-making (73.21%).
-- The sub-category recorded an overall loss of 15,822.42.
-- The concentration of loss-making products suggests a broader profitability concern.
+Several higher discount levels recorded negative aggregate profit.
 
-**Business implication:** Investigate product costs, selling prices, and discount practices across the sub-category.
+Examples include:
 
-### 3. Technology — Machines
+| Discount | Total Profit | Profit Margin |
+|---:|---:|---:|
+| 30% | -$9,754.22 | -10.14% |
+| 40% | -$20,744.63 | -19.55% |
+| 50% | -$16,120.13 | -32.40% |
+| 70% | -$37,830.61 | -98.37% |
+| 80% | -$23,705.38 | -184.70% |
 
-- 22 of 62 products were loss-making (35.48%).
-- Losses across those loss-making products totaled 20,460.84.
-- Despite these product-level losses, the sub-category generated an overall profit of 7,997.60.
+These findings highlight the importance of evaluating discount decisions alongside product-level profitability.
 
-**Business implication:** Profitable products can offset losses elsewhere, making product-level analysis essential.
+### 3. Sub-Category Profitability
 
-### 4. Furniture — Bookcases
+Three sub-categories recorded negative aggregate profit:
 
-- 31 of 49 products were loss-making (63.27%).
-- The sub-category recorded an overall loss of 3,115.69.
+| Category | Sub-Category | Total Sales | Total Profit |
+|---|---|---:|---:|
+| Furniture | Tables | $184,795.12 | -$15,822.42 |
+| Furniture | Bookcases | $108,827.77 | -$3,115.69 |
+| Office Supplies | Supplies | $43,645.85 | -$1,235.62 |
 
-**Business implication:** Prioritize investigation of loss-making products and evaluate whether pricing or cost adjustments are justified.
+Tables recorded the largest aggregate sub-category loss, followed by Bookcases.
 
-### 5. Product-Level Losses
+### 4. Product-Level Losses
 
-The Cubify CubeX 3D Printer Double Head Print recorded:
+Some products generated substantial sales while recording negative profit.
 
-- Sales: 11,099.96
-- Profit: -8,879.97
-- Average discount: 53%
-- Profit margin: -80%
+Examples include:
 
-The Cisco TelePresence System EX90 also recorded a loss of 1,811.08 despite sales of 22,638.48.
+| Product | Total Profit |
+|---|---:|
+| Cubify CubeX 3D Printer Double Head Print | -$8,879.97 |
+| Lexmark MX611dhe Monochrome Laser Printer | -$4,589.97 |
+| Chromcraft Bull-Nose Wood Oval Conference Table | -$2,876.12 |
+| GBC DocuBind P400 Electric Binding System | -$1,878.17 |
 
-**Business implication:** High revenue does not guarantee profitability. Product-level costs and pricing should be reviewed alongside sales and discounts.
+These products highlight the importance of analyzing product-level profitability rather than relying on sales revenue alone.
 
-### Important Interpretation Note
+### 5. Customer Segment Performance
 
-These findings describe patterns in the available data; they do not establish causation. In particular, high discounts may be associated with negative profitability, but the analysis alone cannot prove that discounts caused the losses.
+The analysis compares Consumer, Corporate, and Home Office segments.
+
+Key observations:
+
+- Consumer contributes the largest sales, profit, and order volume.
+- Corporate records the highest profit margin at approximately 15%.
+- Home Office has the lowest sales and order volume among the three segments.
+
+### 6. Geographic Performance
+
+The geographic analysis evaluates business performance at regional, state/province, and city levels.
+
+Key observations:
+
+- Regional comparisons highlight differences in sales and profit contribution.
+- State/province analysis helps identify lower-profit geographic areas.
+- City-level analysis compares sales and profitability to highlight local performance differences.
+- Geographic reach is evaluated using Geographic Areas Served and Cities Served.
+
+### 7. Shipping Mode Performance
+
+The shipping analysis highlights differences in business performance and delivery duration.
+
+Key observations:
+
+- Standard Class contributes the largest sales and profit.
+- Same Day records the highest profit margin at approximately 18%.
+- Standard Class has the longest average shipping duration at approximately 4.99 days.
+- Same Day has the shortest average shipping duration at approximately 0.05 days.
+- Overall Average Shipping Duration is approximately 3.96 days.
 
 ## 💡 Business Recommendations
 
-Based on the preliminary findings:
+Based on the overall analysis, the following actions are recommended:
 
-1. Prioritize investigation of loss-making products in Tables, Bookcases, and Machines.
-2. Review product costs and selling prices for products with substantial losses.
-3. Evaluate discount practices using product-level profit margins.
-4. Monitor revenue and profitability together rather than relying on sales alone.
-5. Use the Power BI dashboard to identify emerging risks and support ongoing performance monitoring.
-
-Recommendations should be validated against reliable cost and pricing records before commercial policies are changed.
+1. **Improve discount management:** Review higher discount groups associated with negative profitability.
+2. **Focus on loss-making products:** Prioritize products with the largest negative profit.
+3. **Improve sub-category profitability:** Give particular attention to Tables and Bookcases.
+4. **Evaluate customer segments:** Maintain strong-performing segments while exploring opportunities in lower-volume segments.
+5. **Monitor geographic performance:** Investigate lower-profit states, provinces, and cities.
+6. **Evaluate shipping performance:** Consider sales, profit, order volume, and shipping duration together.
+7. **Use profitability-focused KPIs:** Evaluate business performance using profit and margin alongside sales.
 
 ## 📁 Project Structure
 
@@ -238,7 +350,6 @@ retail-business-analytics/
 ├── data/
 │   ├── shopsphere_raw.xls
 │   └── shopsphere_historical.csv
-│    
 │
 ├── docs/
 │   ├── business_problem.md
@@ -251,30 +362,27 @@ retail-business-analytics/
 │   ├── 01_data_quality_assessment.ipynb
 │   └── 02_baseline_business_performance.ipynb
 │
-│
-│
 └── powerbi/
-    └──ShopSphere_Retail_Business_Analytics.pbix
+    └── ShopSphere_Retail_Business_Analytics.pbix
 ```
-
-*The structure represents the intended project organization; files and folders may be added as development progresses.*
 
 ## 🚀 How to Explore the Project
 
 1. Review `docs/business_problem.md` to understand the business context.
-2. Read `docs/business_requirements.md` for the business questions and KPIs.
-3. Explore `data_catalog.md` and `docs/data_quality_report.md` to understand the dataset and its limitations.
-4. Follow the Python notebooks to reproduce the analysis.
-5. Review `docs/business_insights.md` for analytical findings and recommendations.
-6. Open the Power BI report when the dashboard implementation is available.
+2. Read `docs/business_requirements.md` for business questions and KPI definitions.
+3. Explore `data_catalog.md` and `docs/data_quality_report.md` to understand the dataset and its quality assessment.
+4. Follow the Python notebooks to explore the analytical workflow.
+5. Review `docs/business_insights.md` for detailed findings and recommendations.
+6. Open the Power BI report in the `powerbi/` folder to explore the six interactive dashboard pages.
 
 ## ⚠️ Limitations
 
-- The dataset is used for an analytical case study and is not verified company data.
-- Future-dated records require context before they can be interpreted as invalid.
-- The recorded Profit field has not been independently reconciled against accounting records.
-- Marketing costs, shipping costs, and returns information are not available for direct analysis.
-- The relationship between discounts and profitability is descriptive, not causal.
+- ShopSphere is a fictional business scenario based on the Sample Superstore dataset.
+- The analysis uses the dataset's recorded Profit field, which should not automatically be interpreted as fully loaded net profit.
+- Discount and profitability comparisons are descriptive and do not establish causation.
+- Shipping duration represents elapsed calendar days, not business days.
+- The dataset does not contain Shipping Cost, so shipping cost efficiency cannot be evaluated directly.
+- Marketing ROI, customer acquisition cost, and product return rates cannot be calculated from the available fields.
 
 ## 👤 Author
 
@@ -282,10 +390,10 @@ retail-business-analytics/
 
 Computer Science Graduate | Data Analyst & BI Developer
 
-- Linkedin: [MohamedAtef](https://www.linkedin.com/in/mohamed-atef22/)
+- LinkedIn: [Mohamed Atef](https://www.linkedin.com/in/mohamed-atef22/)
 - GitHub: [MohamedAtef721](https://github.com/MohamedAtef721)
 - Portfolio: [mohamedatef-ten.vercel.app](https://mohamedatef-ten.vercel.app/)
 
 ---
 
-*This project demonstrates a business-oriented analytics workflow, from understanding the business problem and assessing data quality to identifying profitability risks and communicating actionable insights.*
+*This project demonstrates an end-to-end, business-oriented analytics workflow, from understanding the business problem and assessing data quality to analyzing profitability, identifying business risks, and communicating actionable insights through interactive Power BI dashboards.*
