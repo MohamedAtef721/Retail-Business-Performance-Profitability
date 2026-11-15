@@ -249,8 +249,8 @@ For orders dated on or before October 24, 2026:
 
 | KPI | Value |
 |---|---:|
-| Total Sales | $2,115,813.28 |
-| Total Profit | $273,117.69 |
+| Total Sales | $2,115,813 |
+| Total Profit | $273,117 |
 | Profit Margin | 12.91% |
 | Total Orders | 4,588 |
 | Total Quantity | 34,787 |
@@ -265,11 +265,11 @@ Examples include:
 
 | Discount | Total Profit | Profit Margin |
 |---:|---:|---:|
-| 30% | -$9,754.22 | -10.14% |
-| 40% | -$20,744.63 | -19.55% |
-| 50% | -$16,120.13 | -32.40% |
-| 70% | -$37,830.61 | -98.37% |
-| 80% | -$23,705.38 | -184.70% |
+| 30% | -$9,754  | -10.14% |
+| 40% | -$20,744 | -19.55% |
+| 50% | -$16,120 | -32.40% |
+| 70% | -$37,830 | -98.37% |
+| 80% | -$23,705 | -184.70% |
 
 These findings highlight the importance of evaluating discount decisions alongside product-level profitability.
 
@@ -279,9 +279,9 @@ Three sub-categories recorded negative aggregate profit:
 
 | Category | Sub-Category | Total Sales | Total Profit |
 |---|---|---:|---:|
-| Furniture | Tables | $184,795.12 | -$15,822.42 |
-| Furniture | Bookcases | $108,827.77 | -$3,115.69 |
-| Office Supplies | Supplies | $43,645.85 | -$1,235.62 |
+| Furniture | Tables | $184,795 | -$15,822 |
+| Furniture | Bookcases | $108,827 | -$3,115 |
+| Office Supplies | Supplies | $43,645 | -$1,235 |
 
 Tables recorded the largest aggregate sub-category loss, followed by Bookcases.
 
@@ -293,10 +293,10 @@ Examples include:
 
 | Product | Total Profit |
 |---|---:|
-| Cubify CubeX 3D Printer Double Head Print | -$8,879.97 |
-| Lexmark MX611dhe Monochrome Laser Printer | -$4,589.97 |
-| Chromcraft Bull-Nose Wood Oval Conference Table | -$2,876.12 |
-| GBC DocuBind P400 Electric Binding System | -$1,878.17 |
+| Cubify CubeX 3D Printer Double Head Print | -$8,879 |
+| Lexmark MX611dhe Monochrome Laser Printer | -$4,589 |
+| Chromcraft Bull-Nose Wood Oval Conference Table | -$2,876 |
+| GBC DocuBind P400 Electric Binding System | -$1,878 |
 
 These products highlight the importance of analyzing product-level profitability rather than relying on sales revenue alone.
 
